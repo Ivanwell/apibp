@@ -1,0 +1,33 @@
+const ApiProductRouter = require('express').Router()
+const { GetProduct, GetProductsByFullInfo, GetProductsByCategory, GetCategories, CheckCompatibility, GetDetailsByUuid, Test, GetProducts } = require('./get_product.js')
+const { GetReviews, AddReview, AddReviewToProduct, AddCommentToReview } = require('./reviews_and_comments.js')
+const { LeaveRequest, LeaveRequestForSearch, CreateOrder, TestForm, TestDataBase } = require('./request_order.js')
+const { GetCities, GetDepartments } = require('./nova_poshta_info.js')
+const { GetMainInfo, GiveMainInfoSuplier, CreateAllLinksForSuplier } = require('./main_info.js')
+
+ApiProductRouter.route('/get_product').get(GetProduct)
+ApiProductRouter.route('/get_products').get(GetProducts)
+ApiProductRouter.route('/get_products_arr_by_full_info').post(GetProductsByFullInfo)
+ApiProductRouter.route('/get_products_arr_by_category').get(GetProductsByCategory)
+ApiProductRouter.route('/get_categories').get(GetCategories)
+ApiProductRouter.route('/get_details_by_uuid').get(GetDetailsByUuid)
+ApiProductRouter.route('/check_compatibility').post(CheckCompatibility)
+ApiProductRouter.route('/get_reviews').get(GetReviews)
+ApiProductRouter.route('/add_review').post(AddReview)
+ApiProductRouter.route('/add_review_to_product').post(AddReviewToProduct)
+ApiProductRouter.route('/add_comment_to_review').post(AddCommentToReview)
+ApiProductRouter.route('/leave_check_request').post(LeaveRequest)
+ApiProductRouter.route('/leave_search_request').post(LeaveRequestForSearch)
+ApiProductRouter.route('/create_order').post(CreateOrder)
+ApiProductRouter.route('/get_cities').get(GetCities)
+ApiProductRouter.route('/get_departments').get(GetDepartments)
+ApiProductRouter.route('/get_main_info').get(GetMainInfo)
+ApiProductRouter.route('/get_main_info_suplier').get(GiveMainInfoSuplier)
+ApiProductRouter.route('/create_links').get(CreateAllLinksForSuplier)
+
+ApiProductRouter.route('/test').get(Test)
+ApiProductRouter.route('/test_form').post(TestForm)
+ApiProductRouter.route('/test_device').get(TestDataBase)
+
+    
+module.exports = ApiProductRouter
