@@ -12,10 +12,9 @@ const {
 var fs = require('fs')
 
 const GetProduct = async function (req, res, next) {
-  const brand = req.query.brand || null
   let filter = {
     article: req.query.article,
-    brand: brand ? { $regex: req.query.brand, $options: 'i' } : null,
+    brand: req.query.brand ? { $regex: req.query.brand, $options: 'i' } : '',
   }
   // if (brand) {
   //   filter = {
